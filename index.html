@@ -3,246 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sales Dashboard | Ben Tamam & Team</title>
+  <title>Sales Dashboard | Ben Tamam & Team</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* —— Variables —— */
     :root {
-      --primary: #4361ee;
-      --primary-light: #4895ef;
-      --secondary: #3bc9db;
-      --accent: #ff6b6b;
-      --dark: #2d3748;
-      --dark-light: #4a5568;
-      --light: #f8fafc;
-      --light-bg: #f1f5f9;
+      --primary: #2e86de;
+      --secondary: #48c9b0;
+      --dark: #333;
+      --light-bg: #f4f7fa;
       --card-bg: #ffffff;
-      --gray-100: #f7fafc;
-      --gray-200: #edf2f7;
-      --gray-300: #e2e8f0;
-      --gray-400: #cbd5e0;
-      --gray-500: #a0aec0;
-      --success: #4fd1c5;
-      --warning: #f6ad55;
-      --danger: #fc8181;
-      --radius-sm: 6px;
-      --radius: 12px;
-      --radius-lg: 16px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
-      --shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-      --shadow-lg: rgba(17, 12, 46, 0.12) 0px 48px 100px 0px;
-      --transition: all 0.3s ease;
+      --radius: 8px;
+      --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
     }
 
     /* —— Reset & Base Styles —— */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     html, body { height: 100%; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light-bg);
       color: var(--dark);
-      line-height: 1.7;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
     }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-    a { 
-      color: var(--primary); 
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    a:hover { 
-      color: var(--primary-light);
-      text-decoration: none;
-    }
-    
-    .badge {
-      background: var(--accent);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: 20px;
-      margin-left: 0.5rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      animation: pulse 2s infinite;
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     /* —— Navigation —— */
     nav {
-      background: var(--card-bg);
+      background: white;
       box-shadow: var(--shadow);
-      padding: 1rem 0;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 100;
-    }
-    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    nav .logo-container {
-      display: flex;
-      align-items: center;
     }
     nav .logo {
-      font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: 1.35rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: flex;
-      align-items: center;
-    }
-    nav .logo i {
-      margin-right: 0.5rem;
-      font-size: 1.5rem;
-    }
-    nav .menu {
-      display: flex;
-      align-items: center;
-    }
-    nav .menu a {
-      position: relative;
-      margin-left: 2rem;
-      font-weight: 500;
-      color: var(--dark-light);
-      font-size: 0.95rem;
-      transition: var(--transition);
-    }
-    nav .menu a:hover {
+      font-size: 1.25rem;
       color: var(--primary);
     }
-    nav .menu a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      transition: width 0.3s ease;
-    }
-    nav .menu a:hover::after {
-      width: 100%;
-    }
-    .mobile-menu-btn {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--dark);
-      cursor: pointer;
+    nav .menu a {
+      margin-left: 1.5rem;
+      font-weight: 600;
     }
 
-    /* —— Hero Section —— */
+    /* —— Hero —— */
     .hero {
-      position: relative;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 5rem 0;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
-      animation: rotate 60s linear infinite;
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
+      padding: 3rem 1rem;
     }
     .hero h1 {
-      font-size: 2.75rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
     .hero p {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto;
     }
 
     /* —— Main Content —— */
     main {
       flex: 1;
-      margin: 3rem 0;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
     section {
-      margin-bottom: 4rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
+      margin-bottom: 3rem;
     }
     section h2 {
-      font-size: 1.85rem;
-      margin-bottom: 1.25rem;
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      color: var(--dark);
-    }
-    section h2 i {
-      margin-right: 0.75rem;
-      font-size: 1.5rem;
-      color: var(--primary);
     }
     section h2::after {
       content: '';
-      width: 60px;
+      width: 50px;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--primary);
       position: absolute;
       bottom: -8px;
       left: 0;
-      border-radius: 4px;
+      border-radius: 2px;
     }
     section p {
-      margin: 0.75rem 0 2rem;
+      margin: 0.75rem 0 1.5rem;
       max-width: 800px;
-      color: var(--dark-light);
-      font-size: 1.05rem;
     }
 
     /* —— Card & Viz Styles —— */
@@ -250,241 +107,28 @@
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 1.5rem;
+      padding: 1rem;
       overflow: hidden;
-      transition: var(--transition);
-      position: relative;
-    }
-    .card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-5px);
-    }
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--dark);
-      position: relative;
-    }
-    .card-icon {
-      font-size: 1.25rem;
-      color: var(--primary);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .card-icon:hover {
-      color: var(--primary-light);
-      transform: scale(1.1);
     }
     .viz-container {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 400px;
+      padding-bottom: 75%; /* 4:3 ratio */
     }
-    .viz-loader {
+    .viz-container object {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-    .viz-loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid var(--gray-300);
-      border-radius: 50%;
-      border-top-color: var(--primary);
-      animation: spin 1s linear infinite;
-    }
-    .tooltip {
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--dark);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 20;
-      white-space: nowrap;
-    }
-    .tooltip::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: var(--dark) transparent transparent transparent;
-    }
-    .card-icon:hover + .tooltip {
-      opacity: 1;
-      visibility: visible;
-      top: -50px;
-    }
-
-    /* —— Data Model Styles —— */
-    #model ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 1.5rem 0;
-    }
-    #model li {
-      background: var(--gray-100);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--primary);
-    }
-    #model li strong {
-      font-weight: 600;
-      color: var(--dark);
-    }
-    #model code {
-      background: var(--gray-200);
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: monospace;
-      color: var(--primary);
-      font-size: 0.9rem;
-    }
-    #model p strong {
-      font-weight: 600;
-      color: var(--dark);
-    }
-    #model p em {
-      color: var(--primary);
-      font-style: normal;
-      font-weight: 500;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
     }
 
     /* —— Footer —— */
     footer {
       text-align: center;
-      padding: 2rem 0;
-      font-size: 0.95rem;
-      color: var(--gray-500);
-      background: var(--card-bg);
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      color: #666;
+      background: white;
       box-shadow: var(--shadow);
-      position: relative;
-    }
-    footer strong {
-      color: var(--dark);
-      font-weight: 600;
-    }
-
-    /* —— Back to Top Button —— */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      z-index: 99;
-    }
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    .back-to-top:hover {
-      background: var(--primary-light);
-      transform: translateY(-5px);
-    }
-
-    /* —— Animations —— */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.7; }
-      100% { opacity: 1; }
-    }
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* —— Media Queries —— */
-    @media (max-width: 992px) {
-      .hero h1 { font-size: 2.25rem; }
-      .hero p { font-size: 1.1rem; }
-      section h2 { font-size: 1.65rem; }
-    }
-    @media (max-width: 768px) {
-      .nav-container { padding: 0 1rem; }
-      .container { padding: 0 1rem; }
-      nav .menu { display: none; }
-      nav .menu.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--card-bg);
-        padding: 1rem;
-        box-shadow: var(--shadow);
-      }
-      nav .menu.active a {
-        margin: 0.75rem 0;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
-      .hero { padding: 4rem 0; }
-      .hero h1 { font-size: 1.85rem; }
-      .hero p { font-size: 1rem; }
-    }
-    @media (max-width: 576px) {
-      .hero { padding: 3rem 0; }
-      .hero h1 { font-size: 1.65rem; }
-      .hero p { font-size: 0.95rem; }
-      section h2 { font-size: 1.45rem; }
-      .back-to-top {
-        width: 2.5rem;
-        height: 2.5rem;
-        bottom: 1.5rem;
-        right: 1.5rem;
-      }
     }
   </style>
 </head>
@@ -492,236 +136,109 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="nav-container">
-      <div class="logo-container">
-        <div class="logo">
-          <i class="fas fa-chart-line"></i>
-          SalesDash Pro
-          <span class="badge">Beta</span>
-        </div>
-      </div>
-      <div class="menu">
-        <a href="#model"><i class="fas fa-database"></i> Data Model</a>
-        <a href="#sheet1"><i class="fas fa-chart-bar"></i> Sales by Category</a>
-        <a href="#sheet2"><i class="fas fa-chart-line"></i> Monthly Trend</a>
-        <a href="#sheet3"><i class="fas fa-award"></i> Top Products</a>
-        <a href="#sheet4"><i class="fas fa-balance-scale"></i> Revenue vs. Volume</a>
-      </div>
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
+    <div class="logo">SalesDash Pro</div>
+    <div class="menu">
+      <a href="#model">Data Model</a>
+      <a href="#sheet1">Sales by Category</a>
+      <a href="#sheet2">Monthly Trend</a>
+      <a href="#sheet3">Top Products</a>
+      <a href="#sheet4">Revenue vs. Volume</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <div class="hero">
-    <div class="hero-content">
-      <h1>Interactive Sales Dashboard</h1>
-      <p>Join Products ↔ Categories ↔ Sales to unlock actionable insights</p>
-    </div>
+    <h1>Interactive Sales Dashboard</h1>
+    <p>Join Products ↔ Categories ↔ Sales to unlock actionable insights</p>
   </div>
 
   <main>
-    <div class="container">
-      <!-- Data Model Explanation -->
-      <section id="model" class="section">
-        <h2><i class="fas fa-database"></i> Data Model &amp; Tables</h2>
-        <p>Below are the five source tables powering this dashboard. Use the links to view the raw data.</p>
-        <ul>
-          <li><strong>Categories</strong> – lookup table grouping products by <code>CategoryID</code>;<br>
-              fields: <code>CategoryID</code>, <code>CategoryName</code>.</li>
-          <li><strong>Customers</strong> – customer master with <code>CustomerID</code>;<br>
-              fields: <code>CustomerID</code>, <code>CustomerName</code>, <code>Region</code>.</li>
-          <li><strong>Products</strong> – product catalog keyed on <code>ProductID</code>;<br>
-              fields: <code>ProductID</code>, <code>ProductName</code>, <code>CategoryID</code> (FK), <code>UnitPrice</code>.</li>
-          <li><strong>Sales</strong> – transactional records keyed on <code>SaleID</code>;<br>
-              fields: <code>SaleID</code>, <code>ProductID</code> (FK), <code>CustomerID</code> (FK), <code>StoreID</code> (FK), <code>Date</code>, <code>Quantity</code>, <code>Total</code>.</li>
-          <li><strong>Stores</strong> – store directory keyed on <code>StoreID</code>;<br>
-              fields: <code>StoreID</code>, <code>StoreName</code>, <code>Region</code>.</li>
-        </ul>
-        <p><strong>Key Relationships:</strong><br>
-          • <em>Products ↔ Categories:</em> link on <code>CategoryID</code> to aggregate by product group.<br>
-          • <em>Sales ↔ Products:</em> link on <code>ProductID</code> to measure revenue &amp; volume.<br>
-          • <em>Sales ↔ Customers:</em> link on <code>CustomerID</code> for customer-level analysis.<br>
-          • <em>Sales ↔ Stores:</em> link on <code>StoreID</code> for location-level performance.
-        </p>
-      </section>
+    <!-- Data Model Explanation -->
+    <section id="model">
+      <h2>Data Model &amp; Tables</h2>
+      <p>Below are the five source tables powering this dashboard. Use the links to view the raw data.</p>
+      <ul>
+        <li><strong>Categories</strong> – lookup table grouping products by <code>CategoryID</code>;<br>
+            fields: <code>CategoryID</code>, <code>CategoryName</code>.</li>
+        <li><strong>Customers</strong> – customer master with <code>CustomerID</code>;<br>
+            fields: <code>CustomerID</code>, <code>CustomerName</code>, <code>Region</code>.</li>
+        <li><strong>Products</strong> – product catalog keyed on <code>ProductID</code>;<br>
+            fields: <code>ProductID</code>, <code>ProductName</code>, <code>CategoryID</code> (FK), <code>UnitPrice</code>.</li>
+        <li><strong>Sales</strong> – transactional records keyed on <code>SaleID</code>;<br>
+            fields: <code>SaleID</code>, <code>ProductID</code> (FK), <code>CustomerID</code> (FK), <code>StoreID</code> (FK), <code>Date</code>, <code>Quantity</code>, <code>Total</code>.</li>
+        <li><strong>Stores</strong> – store directory keyed on <code>StoreID</code>;<br>
+            fields: <code>StoreID</code>, <code>StoreName</code>, <code>Region</code>.</li>
+      </ul>
+      <p><strong>Key Relationships:</strong><br>
+        • <em>Products ↔ Categories:</em> link on <code>CategoryID</code> to aggregate by product group.<br>
+        • <em>Sales ↔ Products:</em> link on <code>ProductID</code> to measure revenue &amp; volume.<br>
+        • <em>Sales ↔ Customers:</em> link on <code>CustomerID</code> for customer-level analysis.<br>
+        • <em>Sales ↔ Stores:</em> link on <code>StoreID</code> for location-level performance.
+      </p>
+    </section>
 
-      <!-- Sheet 1: Sales by Category -->
-      <section id="sheet1" class="section">
-        <h2><i class="fas fa-chart-bar"></i> Sheet 1: Sales by Category</h2>
-        <p>
-          This bar chart shows total revenue per category. We join <code>Sales</code> → <code>Products</code> → <code>Categories</code>
-          on <code>ProductID</code> &amp; <code>CategoryID</code>, sum the <code>Total</code> sales value, and sort descending.
-        </p>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Category Revenue Performance</div>
-            <div class="card-icon">
-              <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="tooltip">Shows revenue by product category</div>
-          </div>
-          <div class="viz-container">
-            <div id="sheet1-loader" class="viz-loader">
-              <div class="spinner"></div>
-            </div>
-            <div id="sheet1-viz"></div>
-          </div>
-        </div>
-      </section>
+    <!-- Sheet 1: Sales by Category -->
+    <section id="sheet1">
+      <h2>Sheet 1: Sales by Category</h2>
+      <p>
+        This bar chart shows total revenue per category. We join <code>Sales</code> → <code>Products</code> → <code>Categories</code>
+        on <code>ProductID</code> &amp; <code>CategoryID</code>, sum the <code>Total</code> sales value, and sort descending.
+      </p>
+      <div id="sheet1-viz" class="card" style="height:500px;"></div>
+    </section>
 
-      <!-- Sheet 2: Monthly Trend -->
-      <section id="sheet2" class="section">
-        <h2><i class="fas fa-chart-line"></i> Sheet 2: Monthly Trend</h2>
-        <p>
-          A continuous line chart showing monthly sales trends by category.
-        </p>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Monthly Category Sales</div>
-            <div class="card-icon">
-              <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="tooltip">Analyzes sales trends over time by category</div>
-          </div>
-          <div class="viz-container">
-            <div id="sheet2-loader" class="viz-loader">
-              <div class="spinner"></div>
-            </div>
-            <div id="sheet2-viz"></div>
-          </div>
-        </div>
-      </section>
+    <!-- Sheet 2: Monthly Trend -->
+        <!-- Sheet 2: Monthly Trend -->
+    <section id="sheet2">
+      <h2>Sheet 2: Monthly Trend</h2>
+      <p>
+        A continuous line chart showing monthly sales trends by category.
+      </p>
+      <div id="sheet2-viz" class="card" style="height:500px;"></div>
+    </section>
 
-      <!-- Sheet 3: Top Products -->
-      <section id="sheet3" class="section">
-        <h2><i class="fas fa-award"></i> Sheet 3: Top Products</h2>
-        <p>
-          A Pareto‑style bar chart of your best-selling items by quantity. Filter to Top 10 products
-          by <code>SUM(Quantity)</code>.
-        </p>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Top 10 Best Sellers</div>
-            <div class="card-icon">
-              <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="tooltip">Displays top products by sales volume</div>
-          </div>
-          <div class="viz-container">
-            <div id="sheet3-loader" class="viz-loader">
-              <div class="spinner"></div>
-            </div>
-            <div id="sheet3-viz"></div>
-          </div>
-        </div>
-      </section>
+    <!-- Sheet 3: Top Products -->
+    <section id="sheet3">
+      <h2>Sheet 3: Top Products</h2>
+      <p>
+        A Pareto‑style bar chart of your best-selling items by quantity. Filter to Top 10 products
+        by <code>SUM(Quantity)</code>.
+      </p>
+      <div id="sheet3-viz" class="card" style="height:500px;"></div>
+    </section>
 
-      <!-- Sheet 4: Revenue vs. Volume -->
-      <section id="sheet4" class="section">
-        <h2><i class="fas fa-balance-scale"></i> Sheet 4: Revenue vs. Volume</h2>
-        <p>
-          A scatter plot that shows which products punch above (or below) their weight - high revenue but low volume, or vice versa.
-        </p>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Revenue-Volume Analysis</div>
-            <div class="card-icon">
-              <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="tooltip">Compare revenue to sales volume for each product</div>
-          </div>
-          <div class="viz-container">
-            <div id="sheet4-loader" class="viz-loader">
-              <div class="spinner"></div>
-            </div>
-            <div id="sheet4-viz"></div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <!-- Sheet 4: Revenue vs. Volume -->
+    <section id="sheet4">
+      <h2>Sheet 4: Revenue vs. Volume</h2>
+      <p>
+        A scatter plot that shows which products punch above (or below) their weight - high revenue but low volume, or vice versa.
+      </p>
+      <div id="sheet4-viz" class="card" style="height:500px;"></div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    Done by <strong>Ben Tamam</strong>, <strong>Dolev Samuel</strong> &amp; <strong>Linoy Rachmaninov</strong>
+    Done by <strong>Ben Tamam</strong>, <strong>Dolev Samuel</strong> &amp; <strong>Linoy Rachmaninov</strong>
   </footer>
-
-  <!-- Back to Top Button -->
-  <div class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </div>
 
   <!-- Tableau JS API -->
   <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
   <script>
-    // Helper to embed a viz with loading state
-    function embedViz(containerId, viewUrl, loaderId) {
+    // Helper to embed a viz
+    function embedViz(containerId, viewUrl) {
       var container = document.getElementById(containerId);
-      var loader = document.getElementById(loaderId);
-      
-      var viz = new tableau.Viz(container, viewUrl + "?:embed=yes&:showVizHome=no", {
+      new tableau.Viz(container, viewUrl + "?:embed=yes&:showVizHome=no", {
         hideTabs: true,
-        hideToolbar: false,
-        onFirstInteractive: function() {
-          // Hide loader when viz is loaded
-          loader.classList.add('hidden');
-        }
-      });
-      
-      // Add error handling
-      viz.addEventListener(tableau.TableauEventName.ERROR, function() {
-        loader.innerHTML = '<div style="text-align: center; color: #ff6b6b;"><i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 1rem;"></i><p>Failed to load visualization</p></div>';
+        hideToolbar: false
       });
     }
 
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      document.querySelector('.menu').classList.toggle('active');
-    });
-
-    // Back to top button
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Intersection Observer for section animations
-    const sections = document.querySelectorAll('.section');
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-
-    // Embed each sheet with loaders
-    window.addEventListener('DOMContentLoaded', function() {
-      embedViz('sheet1-viz', 'https://public.tableau.com/views/SalesByCategory_17453192012800/SalesbyCategory', 'sheet1-loader');
-      embedViz('sheet2-viz', 'https://public.tableau.com/views/MonthlyTrend_17453204324250/MonthlyTrend', 'sheet2-loader');         
-      embedViz('sheet3-viz', 'https://public.tableau.com/views/TopProducts_17453210928300/TopProducts', 'sheet3-loader');         
-      embedViz('sheet4-viz', 'https://public.tableau.com/views/Revenuevs_Volume/Revenuevs_Volume', 'sheet4-loader');    
-    });
+    // Embed each sheet
+    embedViz('sheet1-viz', 'https://public.tableau.com/views/SalesByCategory_17453192012800/SalesbyCategory');
+    embedViz('sheet2-viz', 'https://public.tableau.com/views/MonthlyTrend_17453204324250/MonthlyTrend');         
+    embedViz('sheet3-viz', 'https://public.tableau.com/views/TopProducts_17453210928300/TopProducts');         
+    embedViz('sheet4-viz', 'https://public.tableau.com/views/Revenuevs_Volume/Revenuevs_Volume');    
   </script>
 </body>
 </html>
